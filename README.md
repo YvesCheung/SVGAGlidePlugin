@@ -42,6 +42,22 @@ fun loadSVGAFromNetworkAndAddText(v: View) {
 }
 ```
 
+## Install
+
+```groovy
+dependencies {
+    // SVGAPlayer
+    implementation 'com.github.yyued:SVGAPlayer-Android:2.1.9'
+    
+    // Glide 
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    
+    // integration for them
+    implementation 'com.github.YvesCheung.SVGAPlayer-Android:glideplugin:2.1.3.0'
+}
+```
+
 
   [1]: http://svga.io/
   [2]: https://github.com/Qihoo360/RePlugin
