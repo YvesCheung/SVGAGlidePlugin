@@ -50,11 +50,11 @@ dependencies {
     implementation 'com.github.yyued:SVGAPlayer-Android:2.1.9'
     
     // Glide 
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "com.github.bumptech.glide:glide:4.8.0"
+    kapt "com.github.bumptech.glide:compiler:4.8.0"
     
     // integration for them
-    implementation 'com.github.YvesCheung.SVGAPlayer-Android:glideplugin:2.1.3.0'
+    implementation 'implementation 'com.github.YvesCheung:SVGAGlidePlugin:4.8.0''
 }
 ```
 
