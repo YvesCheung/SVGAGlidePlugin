@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadSVGAFromNetwork(v: View) {
-        val url = "https://github.com/YvesCheung/SVGAPlayer-Android/" +
-            "raw/master/app/src/main/assets/${svgaFiles[curIdx]}.svga"
+        val url = "https://github.com/YvesCheung/SVGAGlidePlugin/blob/master/" +
+            "app/src/main/assets/${svgaFiles[curIdx]}.svga?raw=true"
         loadSVGAFromUrl(url)
     }
 
@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadSVGAFromFile(v: View) {
-        val url = "https://github.com/YvesCheung/SVGAPlayer-Android/" +
-            "raw/master/app/src/main/assets/${svgaFiles[curIdx]}.svga"
+        val url = "https://github.com/YvesCheung/SVGAGlidePlugin/blob/master/" +
+            "app/src/main/assets/${svgaFiles[curIdx]}.svga?raw=true"
         val file = File(externalCacheDir, svgaFiles[curIdx].replace("/", "_"))
         val buffer = ByteArray(64 * 1024)
         Thread {
