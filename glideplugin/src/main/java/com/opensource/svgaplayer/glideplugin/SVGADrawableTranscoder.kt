@@ -1,6 +1,5 @@
 package com.opensource.svgaplayer.glideplugin
 
-import android.graphics.drawable.Drawable
 import com.bumptech.glide.load.Options
 import com.bumptech.glide.load.engine.Resource
 import com.bumptech.glide.load.resource.transcode.ResourceTranscoder
@@ -13,14 +12,10 @@ import com.opensource.svgaplayer.SVGAVideoEntity
  * E-mail: zhangyu4@yy.com
  * YY: 909017428
  */
-class SVGADrawableTranscoder(private val wrapToAnimator: Boolean) : ResourceTranscoder<SVGAVideoEntity, Drawable> {
+class SVGADrawableTranscoder : ResourceTranscoder<SVGAVideoEntity, SVGADrawable> {
 
-    override fun transcode(toTranscode: Resource<SVGAVideoEntity>, options: Options): Resource<Drawable> {
-        val drawable = SVGADrawable(toTranscode.get(), SVGADynamicEntity())
-        return if (wrapToAnimator) {
-            SVGADrawableResource(SVGADrawableWrapper(drawable), toTranscode)
-        } else {
-            SVGADrawableResource(drawable, toTranscode)
-        }
+    override fun transcode(toTranscode: Resource<SVGAVideoEntity>, options: Options): SVGADrawableResource {
+        return SVGADrawableResource(
+            SVGADrawable(toTranscode.get(), SVGADynamicEntity()), toTranscode)
     }
 }

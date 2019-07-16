@@ -1,8 +1,8 @@
 package com.opensource.svgaplayer.glideplugin
 
-import android.graphics.drawable.Drawable
 import com.bumptech.glide.load.engine.Resource
 import com.bumptech.glide.load.resource.drawable.DrawableResource
+import com.opensource.svgaplayer.SVGADrawable
 import com.opensource.svgaplayer.SVGAVideoEntity
 
 /**
@@ -10,10 +10,10 @@ import com.opensource.svgaplayer.SVGAVideoEntity
  * E-mail: zhangyu4@yy.com
  * YY: 909017428
  */
-open class SVGADrawableResource(drawable: Drawable, private val entityRes: Resource<SVGAVideoEntity>) :
-    DrawableResource<Drawable>(drawable) {
+class SVGADrawableResource(drawable: SVGADrawable, private val entityRes: Resource<SVGAVideoEntity>) :
+    DrawableResource<SVGADrawable>(drawable) {
 
-    override fun getResourceClass(): Class<Drawable> = Drawable::class.java
+    override fun getResourceClass() = SVGADrawable::class.java
 
     override fun getSize(): Int = entityRes.size
 

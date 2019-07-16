@@ -9,7 +9,4 @@ import com.bumptech.glide.module.AppGlideModule
  * YY: 909017428
  */
 @GlideModule
-class CustomGlideModule : AppGlideModule() {
-
-    override fun isManifestParsingEnabled(): Boolean = false
-}
+class CustomGlideModule : AppGlideModule()
