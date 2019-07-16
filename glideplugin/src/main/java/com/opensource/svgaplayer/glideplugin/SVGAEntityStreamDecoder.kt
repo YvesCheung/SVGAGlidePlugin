@@ -42,8 +42,8 @@ internal class SVGAEntityStreamDecoder(
     private fun inflate(source: InputStream): ByteArray? = attempt {
         val buffer = arrayPool.get(ArrayPool.STANDARD_BUFFER_SIZE_BYTES, ByteArray::class.java)
         try {
-            InflaterInputStream(source).use { input ->
-                ByteArrayOutputStream().use { output ->
+            InflaterInputStream(source).let { input ->
+                ByteArrayOutputStream().let { output ->
                     while (true) {
                         val cnt = input.read(buffer)
                         if (cnt <= 0) break
