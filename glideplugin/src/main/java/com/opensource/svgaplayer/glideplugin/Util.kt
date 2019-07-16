@@ -3,7 +3,6 @@
 package com.opensource.svgaplayer.glideplugin
 
 import com.bumptech.glide.RequestManager
-import com.opensource.svgaplayer.SVGADrawable
 import com.opensource.svgaplayer.SVGAVideoEntity
 import java.io.File
 import java.io.FileInputStream
@@ -17,8 +16,6 @@ import java.io.IOException
 const val BUCKET_SVGA = "SVGA"
 
 fun RequestManager.asSVGA() = `as`(SVGAVideoEntity::class.java)
-
-fun RequestManager.asSVGADrawable() = `as`(SVGADrawable::class.java)
 
 const val movieBinary = "movie.binary"
 

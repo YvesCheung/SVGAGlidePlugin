@@ -1,6 +1,7 @@
 package com.opensource.svgaplayer.glideplugin
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.Log
 import com.bumptech.glide.Glide
@@ -12,7 +13,6 @@ import com.bumptech.glide.Registry.BUCKET_GIF
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.LibraryGlideModule
-import com.opensource.svgaplayer.SVGADrawable
 import com.opensource.svgaplayer.SVGAVideoEntity
 import java.io.File
 import java.io.InputStream
@@ -29,13 +29,14 @@ class SVGAModule : LibraryGlideModule() {
         registry.setResourceDecoderBucketPriorityList(
             listOf(BUCKET_SVGA, BUCKET_BITMAP, BUCKET_BITMAP_DRAWABLE, BUCKET_GIF)
         )
-        hookTheImageViewFactory(glide)
+        val replaceSuccess = hookTheImageViewFactory(glide)
         val resources = context.resources
         val cachePath = context.cacheDir.absolutePath
         val streamDecoder = SVGAEntityStreamDecoder(cachePath, glide.arrayPool)
         val resourceFactory = SVGAResourceLoaderFactory(resources, cachePath, registry::getRewinder)
         registry
-            .register(SVGAVideoEntity::class.java, SVGADrawable::class.java, SVGADrawableTranscoder())
+            .register(SVGAVideoEntity::class.java, Drawable::class.java,
+                SVGADrawableTranscoder(!replaceSuccess)) // if hook fail, wrap Drawable to Animatable
             .append(BUCKET_SVGA, InputStream::class.java, SVGAVideoEntity::class.java,
                 streamDecoder)
             .append(BUCKET_SVGA, File::class.java, SVGAVideoEntity::class.java,
@@ -54,20 +55,22 @@ class SVGAModule : LibraryGlideModule() {
             .append(File::class.java, SVGAFileEncoder())
     }
 
-    private fun hookTheImageViewFactory(glide: Glide) {
-        try {
-            val imageFactory = GlideContext::class.java.getDeclaredField("imageViewTargetFactory")
-                ?: return
-            val glideContext = Glide::class.java.getDeclaredField("glideContext")
-                ?: return
-            glideContext.isAccessible = true
-            imageFactory.isAccessible = true
-
-            imageFactory.set(glideContext.get(glide), SVGAImageViewTargetFactory())
-
-        } catch (e: Exception) {
-            Log.e("SVGAPlayer", e.message, e)
-        }
+    private fun hookTheImageViewFactory(glide: Glide): Boolean {
+//        try {
+//            val imageFactory = GlideContext::class.java.getDeclaredField("imageViewTargetFactory")
+//                ?: return false
+//            val glideContext = Glide::class.java.getDeclaredField("glideContext")
+//                ?: return false
+//            glideContext.isAccessible = true
+//            imageFactory.isAccessible = true
+//
+//            imageFactory.set(glideContext.get(glide), SVGAImageViewTargetFactory())
+//            return true
+//        } catch (e: Exception) {
+//            Log.e("SVGAPlayer", e.message, e)
+//            return false
+//        }
+        return false
     }
 }
 
