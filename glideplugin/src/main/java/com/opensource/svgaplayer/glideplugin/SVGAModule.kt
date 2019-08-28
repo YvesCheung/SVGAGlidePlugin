@@ -27,7 +27,7 @@ class SVGAModule : LibraryGlideModule() {
 
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
         registry.setResourceDecoderBucketPriorityList(
-            listOf(BUCKET_SVGA, BUCKET_BITMAP, BUCKET_BITMAP_DRAWABLE, BUCKET_GIF)
+            listOf(BUCKET_SVGA, BUCKET_GIF, BUCKET_BITMAP, BUCKET_BITMAP_DRAWABLE)
         )
         hookTheImageViewFactory(glide)
         val resources = context.resources
