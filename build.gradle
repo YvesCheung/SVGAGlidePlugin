@@ -2,7 +2,7 @@
 
 buildscript {
     ext.kotlin_version = '1.2.50'
-    ext.glide_version = '4.8.0'
+    ext.glide_version = '4.9.0'
     repositories {
         maven { url 'https://jitpack.io' }
         google()
