@@ -3,6 +3,8 @@
 
 ---
 
+[![](https://jitpack.io/v/YvesCheung/SVGAGlidePlugin.svg)](https://jitpack.io/#YvesCheung/SVGAGlidePlugin)
+
 ## SVGA
 you can know more at [svga.io][1] .
 
@@ -54,9 +56,11 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:4.9.0"
     
     // integration for them
-    implementation 'com.github.YvesCheung:SVGAGlidePlugin:4.9.0'
+    implementation 'com.github.YvesCheung:SVGAGlidePlugin:x.y.z'
 }
 ```
+
+`x.y.z` is [![](https://jitpack.io/v/YvesCheung/SVGAGlidePlugin.svg)](https://jitpack.io/#YvesCheung/SVGAGlidePlugin)
 
   [1]: http://svga.io/
   [2]: https://github.com/Qihoo360/RePlugin
