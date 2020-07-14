@@ -5,6 +5,7 @@ import android.widget.ImageView
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.bumptech.glide.request.target.ImageViewTargetFactory
 import com.bumptech.glide.request.target.ViewTarget
+import com.opensource.svgaplayer.SVGADrawable
 import com.opensource.svgaplayer.SVGAImageView
 
 /**
@@ -26,7 +27,11 @@ internal class SVGAImageViewTargetFactory : ImageViewTargetFactory() {
         DrawableImageViewTarget(imageView) {
 
         override fun setResource(resource: Drawable?) {
-            if (resource != null) {
+            if (resource is SVGADrawable) {
+                imageView.setImageDrawable(SVGADrawable(resource.videoItem, resource.dynamicItem))
+                imageView.startAnimation()
+            } else if (resource != null) {
+                //may be not svga
                 imageView.setImageDrawable(resource)
                 imageView.startAnimation()
             }
