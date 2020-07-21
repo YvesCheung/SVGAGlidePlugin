@@ -136,6 +136,10 @@ abstract class SVGAEntityLoader<MODEL : Any>(
             ZipInputStream(inputStream).use { zipInputStream ->
                 while (true) {
                     val zipItem = zipInputStream.nextEntry ?: break
+                    if (zipItem.name.contains("../")) {
+                        // 解压路径防止穿透
+                        continue
+                    }
                     if (zipItem.name.contains("/")) {
                         continue
                     }
