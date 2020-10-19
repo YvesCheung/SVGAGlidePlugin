@@ -28,7 +28,7 @@ internal class SVGAImageViewTargetFactory : ImageViewTargetFactory() {
 
         override fun setResource(resource: Drawable?) {
             if (resource is SVGADrawable) {
-                imageView.setImageDrawable(SVGADrawable(resource.videoItem, resource.dynamicItem))
+                imageView.setVideoItem(resource.videoItem, resource.dynamicItem)
                 imageView.startAnimation()
             } else if (resource != null) {
                 //may be not svga
