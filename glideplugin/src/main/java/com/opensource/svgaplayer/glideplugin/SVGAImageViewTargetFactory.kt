@@ -17,7 +17,7 @@ internal class SVGAImageViewTargetFactory : ImageViewTargetFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <Z : Any> buildTarget(view: ImageView, clazz: Class<Z>): ViewTarget<ImageView, Z> {
-        if (view is SVGAImageView) {
+        if (view is SVGAImageView && Drawable::class.java.isAssignableFrom(clazz)) {
             return SVGADrawableImageViewTarget(view) as ViewTarget<ImageView, Z>
         }
         return super.buildTarget(view, clazz)
