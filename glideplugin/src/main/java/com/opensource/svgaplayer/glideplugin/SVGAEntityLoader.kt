@@ -1,6 +1,6 @@
 package com.opensource.svgaplayer.glideplugin
 
-import android.support.annotation.MainThread
+import androidx.annotation.MainThread
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.Key
 import com.bumptech.glide.load.Options

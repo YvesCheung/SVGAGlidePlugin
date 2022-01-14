@@ -3,8 +3,8 @@ package com.yy.mobile.svga.glideplugin.demo
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
-import android.support.annotation.RawRes
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.RawRes
+import androidx.appcompat.app.AppCompatActivity
 import android.text.Layout
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         val url = "https://github.com/YvesCheung/SVGAGlidePlugin/blob/master/" +
             "app/src/main/assets/${svgaFiles[curIdx]}.svga?raw=true"
         val file = File(externalCacheDir, svgaFiles[curIdx].replace("/", "_"))
-        val buffer = ByteArray(64 * 1024)
+        val buffer = ByteArray(1 * 1024 * 1024)
         Thread {
             try {
                 with(URL(url).openConnection()) {
