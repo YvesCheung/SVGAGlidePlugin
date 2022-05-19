@@ -49,11 +49,11 @@ fun loadSVGAFromNetworkAndAddText(v: View) {
 ```groovy
 dependencies {
     // SVGAPlayer
-    implementation 'com.github.yyued:SVGAPlayer-Android:2.1.9'
+    implementation 'com.github.yyued:SVGAPlayer-Android:2.6.1'
     
     // Glide 
-    implementation "com.github.bumptech.glide:glide:4.9.0"
-    kapt "com.github.bumptech.glide:compiler:4.9.0"
+    implementation "com.github.bumptech.glide:glide:4.13.2"
+    kapt "com.github.bumptech.glide:compiler:4.13.2"
     
     // integration for them
     implementation 'com.github.YvesCheung:SVGAGlidePlugin:x.y.z'
