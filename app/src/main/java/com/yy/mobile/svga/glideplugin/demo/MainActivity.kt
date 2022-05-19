@@ -21,6 +21,10 @@ import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 
+/**
+ * @author YvesCheung
+ * 2019/3/29
+ */
 class MainActivity : AppCompatActivity() {
 
     private val svgaFiles = listOf(

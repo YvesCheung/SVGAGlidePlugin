@@ -6,9 +6,8 @@ import com.bumptech.glide.load.model.ModelLoader
 import java.io.InputStream
 
 /**
- * Created by 张宇 on 2018/12/3.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2018/12/3
  */
 internal class SVGAEntityAssetLoader(
     actual: ModelLoader<Uri, InputStream>,

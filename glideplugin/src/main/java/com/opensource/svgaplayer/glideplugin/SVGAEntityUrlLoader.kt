@@ -8,9 +8,8 @@ import java.io.InputStream
 import java.security.MessageDigest
 
 /**
- * Created by 张宇 on 2018/11/27.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2018/11/27
  */
 internal class SVGAEntityUrlLoader(
     actual: ModelLoader<GlideUrl, InputStream>,

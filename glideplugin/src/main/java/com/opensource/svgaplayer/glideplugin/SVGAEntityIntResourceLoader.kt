@@ -13,9 +13,8 @@ import com.bumptech.glide.signature.ObjectKey
 import java.io.InputStream
 
 /**
- * Created by 张宇 on 2019/3/29.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2019/3/29
  */
 class SVGAEntityIntResourceLoader(
     private val resources: Resources,

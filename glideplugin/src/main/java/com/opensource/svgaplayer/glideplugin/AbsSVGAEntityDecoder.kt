@@ -4,9 +4,8 @@ import android.util.Log
 import java.io.InputStream
 
 /**
- * Created by 张宇 on 2018/11/27.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2018/11/27.
  */
 internal abstract class AbsSVGAEntityDecoder {
 

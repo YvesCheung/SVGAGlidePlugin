@@ -17,9 +17,8 @@ import java.util.concurrent.atomic.AtomicBoolean
 import java.util.zip.ZipInputStream
 
 /**
- * Created by 张宇 on 2018/12/3.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2018/12/3
  */
 abstract class SVGAEntityLoader<MODEL : Any>(
     private val actual: ModelLoader<MODEL, InputStream>,

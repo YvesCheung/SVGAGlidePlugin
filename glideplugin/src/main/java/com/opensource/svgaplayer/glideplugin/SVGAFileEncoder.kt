@@ -8,9 +8,8 @@ import java.io.FileOutputStream
 import java.io.IOException
 
 /**
- * Created by 张宇 on 2018/12/4.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2018/12/4
  */
 class SVGAFileEncoder : Encoder<File> {
     override fun encode(data: File, file: File, options: Options): Boolean {

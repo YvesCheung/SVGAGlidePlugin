@@ -6,13 +6,12 @@ import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.Registry
 
 /**
- * Created by 张宇 on 2018/11/30.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
- *
  * GlideModule Compatible with Android Manifest Declarations.
  *
  * @see SVGAModule
+ *
+ * @author YvesCheung
+ * 2018/11/30.
  */
 @Deprecated(message = "Replaced by [SVGAModule] for Applications that use Glide's annotations.")
 class CompatSVGAModule : com.bumptech.glide.module.GlideModule {

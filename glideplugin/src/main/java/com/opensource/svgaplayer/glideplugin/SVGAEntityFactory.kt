@@ -15,9 +15,8 @@ import java.io.File
 import java.io.InputStream
 
 /**
- * Created by 张宇 on 2018/12/3.
- * E-mail: zhangyu4@yy.com
- * YY: 909017428
+ * @author YvesCheung
+ * 2018/12/3
  */
 internal class SVGAUrlLoaderFactory(
     private val cachePath: String,
