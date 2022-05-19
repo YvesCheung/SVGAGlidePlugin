@@ -1,41 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
+    <RadioGroup
+        android:id="@+id/rb_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="loadSVGAFromNetwork"
-        android:text="load from network" />
+        android:checkedButton="@+id/rb_svga"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_svga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SVGA"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Gif"
+            tools:ignore="HardcodedText" />
+    </RadioGroup>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="loadSVGAFromAssets"
-        android:text="load from assets" />
+        android:onClick="loadFromNetwork"
+        android:text="load from network"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="loadSVGAFromFile"
-        android:text="load from file" />
+        android:onClick="loadFromAssets"
+        android:text="load from assets"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="loadFromFile"
+        android:text="load from file"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="loadSVGAFromNetworkAndAddText"
-        android:text="load from network and add text" />
+        android:text="load from network and add text"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="loadSVGAFromRes"
-        android:text="load from res/raw" />
+        android:onClick="loadFromRes"
+        android:text="load from res/raw"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tv_assets_name"
