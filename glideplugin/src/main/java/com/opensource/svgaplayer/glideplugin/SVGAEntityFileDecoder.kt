@@ -11,7 +11,7 @@ import java.io.File
 import java.io.FileInputStream
 
 /**
- * Created by 张宇 on
+ * @author YvesCheung
  * 2018/11/28
  */
 internal class SVGAEntityFileDecoder(
@@ -45,6 +45,7 @@ internal class SVGAEntityFileDecoder(
         try {
             FileInputStream(binaryFile).use {
                 val entity = SVGAVideoEntity(MovieEntity.ADAPTER.decode(it), source)
+                SVGAMovieAudioHelper.setupAudios(entity)
                 return SVGAEntityResource(entity, source.totalSpace.toInt())
             }
         } catch (e: Exception) {

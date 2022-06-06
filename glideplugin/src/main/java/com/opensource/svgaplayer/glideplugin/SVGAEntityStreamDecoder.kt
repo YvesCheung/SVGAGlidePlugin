@@ -32,6 +32,7 @@ internal class SVGAEntityStreamDecoder(
     override fun decode(source: InputStream, width: Int, height: Int, options: Options): SVGAEntityResource? {
         inflate(source)?.let { bytesOrigin ->
             val entity = SVGAVideoEntity(MovieEntity.ADAPTER.decode(bytesOrigin), File(cachePath))
+            SVGAMovieAudioHelper.setupAudios(entity)
             return SVGAEntityResource(entity, bytesOrigin.size)
         }
         return null

@@ -12,6 +12,7 @@ import com.bumptech.glide.Registry.BUCKET_GIF
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.LibraryGlideModule
+import com.opensource.svgaplayer.SVGACache
 import com.opensource.svgaplayer.SVGADrawable
 import com.opensource.svgaplayer.SVGAVideoEntity
 import java.io.File
@@ -30,7 +31,9 @@ class SVGAModule : LibraryGlideModule() {
         )
         hookTheImageViewFactory(glide)
         val resources = context.resources
-        val cachePath = context.cacheDir.absolutePath
+        SVGACache.onCreate(context)
+        //cachePath is equals to SVGACache.cacheDir
+        val cachePath = context.cacheDir.absolutePath + File.separatorChar + "svga"
         val streamDecoder = SVGAEntityStreamDecoder(cachePath, glide.arrayPool)
         val resourceFactory = SVGAResourceLoaderFactory(resources, cachePath, registry::getRewinder)
         registry
