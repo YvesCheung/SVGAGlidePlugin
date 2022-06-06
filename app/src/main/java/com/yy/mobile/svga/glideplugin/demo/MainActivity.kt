@@ -95,7 +95,9 @@ class MainActivity : AppCompatActivity() {
         Glide.with(this).load(url).into(iv_img)
     }
 
+    @SuppressLint("SetTextI18n")
     fun loadSVGAFromNetworkAndAddText(v: View) {
+        tv_assets_name.text = "Add SVGADynamicEntity..."
         GlideApp.with(this)
             .asSVGA()
             .load("https://github.com/yyued/SVGA-Samples/blob/master/kingset.svga?raw=true")
@@ -176,6 +178,7 @@ class MainActivity : AppCompatActivity() {
 
         private val svgaFiles = listOf(
             "alarm",
+            "jojo_audio",
             "angel",
             "EmptyState",
             "heartbeat",
@@ -186,6 +189,7 @@ class MainActivity : AppCompatActivity() {
 
         private val svgaResources = listOf(
             R.raw.alarm,
+            R.raw.jojo_audio,
             R.raw.angel,
             R.raw.emptystate,
             R.raw.heartbeat,
