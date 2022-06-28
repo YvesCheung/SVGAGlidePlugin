@@ -97,7 +97,7 @@ abstract class SVGAEntityLoader<MODEL : Any>(
 
         private fun decode(source: InputStream): File? {
             if (isCanceled.get()) return null
-            if (cacheDir.isDirectory && cacheDir.list().isNotEmpty()) return cacheDir
+            if (cacheDir.isDirectory && !cacheDir.list().isNullOrEmpty()) return cacheDir
 
             val rewind = obtainRewind(source)
             try {

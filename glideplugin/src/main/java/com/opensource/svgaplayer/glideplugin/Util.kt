@@ -27,7 +27,7 @@ fun File.isSVGAUnZipFile(): Boolean {
 
     fun hasChild(vararg fileNames: String): Boolean {
         if (this.isDirectory) {
-            val childFileNames = this.list().toSet()
+            val childFileNames = this.list()?.toSet() ?: emptySet()
             return fileNames.any { childFileNames.contains(it) }
         }
         return false
