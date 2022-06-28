@@ -13,8 +13,6 @@ import java.io.IOException
  * @author YvesCheung
  * 2018/11/26
  */
-const val BUCKET_SVGA = "SVGA"
-
 fun RequestManager.asSVGA() = `as`(SVGAVideoEntity::class.java)
 
 fun RequestManager.asSVGADrawable() = `as`(SVGADrawable::class.java)

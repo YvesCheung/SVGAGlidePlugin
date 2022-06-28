@@ -6,9 +6,7 @@ import android.util.Log
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideContext
 import com.bumptech.glide.Registry
-import com.bumptech.glide.Registry.BUCKET_BITMAP
-import com.bumptech.glide.Registry.BUCKET_BITMAP_DRAWABLE
-import com.bumptech.glide.Registry.BUCKET_GIF
+import com.bumptech.glide.Registry.BUCKET_ANIMATION
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.LibraryGlideModule
@@ -26,9 +24,6 @@ import java.io.InputStream
 class SVGAModule : LibraryGlideModule() {
 
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
-        registry.setResourceDecoderBucketPriorityList(
-            listOf(BUCKET_SVGA, BUCKET_GIF, BUCKET_BITMAP, BUCKET_BITMAP_DRAWABLE)
-        )
         hookTheImageViewFactory(glide)
         val resources = context.resources
         SVGACache.onCreate(context)
@@ -38,9 +33,9 @@ class SVGAModule : LibraryGlideModule() {
         val resourceFactory = SVGAResourceLoaderFactory(resources, cachePath, registry::getRewinder)
         registry
             .register(SVGAVideoEntity::class.java, SVGADrawable::class.java, SVGADrawableTranscoder())
-            .append(BUCKET_SVGA, InputStream::class.java, SVGAVideoEntity::class.java,
+            .append(BUCKET_ANIMATION, InputStream::class.java, SVGAVideoEntity::class.java,
                 streamDecoder)
-            .append(BUCKET_SVGA, File::class.java, SVGAVideoEntity::class.java,
+            .append(BUCKET_ANIMATION, File::class.java, SVGAVideoEntity::class.java,
                 SVGAEntityFileDecoder(glide.arrayPool))
             // int/Uri for R.raw.resourceId
             .append(Int::class.java, File::class.java, resourceFactory)
