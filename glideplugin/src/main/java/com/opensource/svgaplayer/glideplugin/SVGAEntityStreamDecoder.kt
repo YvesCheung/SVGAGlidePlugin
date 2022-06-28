@@ -21,13 +21,8 @@ internal class SVGAEntityStreamDecoder(
 
     override fun handles(source: InputStream, options: Options): Boolean {
         val bytes = readHeadAsBytes(source)
-        return if (bytes == null) {
-            false
-        } else {
-            !bytes.isZipFormat && !SVGACacheFileHandler.isSVGAMark(bytes)
-        }
+        return bytes != null && bytes.isZLibFormat
     }
-
 
     override fun decode(source: InputStream, width: Int, height: Int, options: Options): SVGAEntityResource? {
         inflate(source)?.let { bytesOrigin ->

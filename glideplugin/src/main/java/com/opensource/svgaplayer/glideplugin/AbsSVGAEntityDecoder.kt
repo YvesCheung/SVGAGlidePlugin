@@ -16,6 +16,11 @@ internal abstract class AbsSVGAEntityDecoder {
             this[2].toInt() == 3 &&
             this[3].toInt() == 4
 
+    protected val ByteArray.isZLibFormat
+        get() = this.size >= 2 && //78 9C
+            this[0].toInt() == 120 &&
+            this[1].toInt() == -100
+
     /**
      * Note: don't close the inputStream!
      */
