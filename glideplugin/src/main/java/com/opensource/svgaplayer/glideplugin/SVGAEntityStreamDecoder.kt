@@ -8,6 +8,7 @@ import com.opensource.svgaplayer.proto.MovieEntity
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.InputStream
+import java.util.zip.Inflater
 import java.util.zip.InflaterInputStream
 
 /**
@@ -35,8 +36,9 @@ internal class SVGAEntityStreamDecoder(
 
     private fun inflate(source: InputStream): ByteArray? = attempt {
         val buffer = arrayPool.get(ArrayPool.STANDARD_BUFFER_SIZE_BYTES, ByteArray::class.java)
+        val inflater = Inflater()
         try {
-            InflaterInputStream(source).let { input ->
+            InflaterInputStream(source, inflater).let { input ->
                 ByteArrayOutputStream().let { output ->
                     while (true) {
                         val cnt = input.read(buffer)
@@ -48,6 +50,7 @@ internal class SVGAEntityStreamDecoder(
             }
         } finally {
             arrayPool.put(buffer)
+            inflater.end()
         }
     }
 }
